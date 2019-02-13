@@ -18,6 +18,9 @@
                 <h1>WELCOME TO GREG'S LIST</h1>
             </div>
         </header>
+        
+        <!-- Cars -->
+        <h2>Cars for Sale</h2>
         <section>
             <form onsubmit="app.controllers.carController.addCar(event)">
                 <input type="text" name="title" placeholder="Title" required>
@@ -28,6 +31,20 @@
             </form>
         </section>
         <main class="row" id="available-cars">
+
+        </main>
+        <!-- Jobs -->
+        <h2>Help Wanted</h2>
+        <section>
+            <form onsubmit="app.controllers.carController.addCar(event)">
+                <input type="text" name="title" placeholder="Title" required>
+                <input type="text" name="description" placeholder="Description">
+                <input type="number" name="price" placeholder="Pay" required>
+                <input type="url" name="img" placeholder="Image" required>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <main class="row" id="available-jobs">
 
         </main>
     </section>

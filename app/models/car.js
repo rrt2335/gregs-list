@@ -1,4 +1,4 @@
-let id = 1
+let id = 1;
 
 export default class Car {
     constructor(data) {
@@ -16,7 +16,7 @@ export default class Car {
             <img class="card-img-top" src="${this.img}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">${this.title}</h5>
-                <p class="card-text">${this.description} -- ${this.price}</p>
+                <p class="card-text">${this.description} -- $${this.price}</p>
                 <button onclick="app.controllers.carController.deleteCar(${this.id})">Remove</button>
             </div>
         </div>`

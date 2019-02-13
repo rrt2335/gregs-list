@@ -3,7 +3,6 @@ import CarService from "./carService.js";
 //Private
 let _cs = new CarService();
 
-
 function draw() {
     let cars = _cs.Cars;
     let template = '';
