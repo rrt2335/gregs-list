@@ -25,7 +25,6 @@ function setState(dataName, value) {
 
 //PUBLIC
 export default class JobService {
-
     addSubscriber(dataName, fn) {
         _subscribers[dataName].push(fn);
     }

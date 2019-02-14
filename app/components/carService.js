@@ -15,7 +15,6 @@ let _state = {
 // SUBSCRIBERS IS AN OBJECT OF ARRAYS OF FUNCTIONS
 let _subscribers = {
     cars: [],
-    jobs: []
 }
 
 function setState(dataName, value) {
@@ -26,7 +25,6 @@ function setState(dataName, value) {
 
 //PUBLIC
 export default class CarService {
-
     addSubscriber(dataName, fn) {
         _subscribers[dataName].push(fn);
     }
