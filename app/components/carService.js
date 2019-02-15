@@ -15,7 +15,7 @@ let _state = {
 // SUBSCRIBERS IS AN OBJECT OF ARRAYS OF FUNCTIONS
 let _subscribers = {
     cars: [],
-}
+} 
 
 function setState(dataName, value) {
     _state[dataName] = value;
