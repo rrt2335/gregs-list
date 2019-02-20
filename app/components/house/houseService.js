@@ -5,7 +5,6 @@ let _housesApi = axios.create({
     baseURL: 'https://bcw-gregslist.herokuapp.com/api/houses'
 })
 
-
 // PRIVATE
 // STATE IS THE OBJECT THAT CONTAINS ALL DATA
 let _state = {
@@ -50,7 +49,7 @@ export default class HouseService {
     }
     bidHouse(id) {
         //find the house in our state with this id, use .find()
-        let house = 
+        let house = {}
         //change the price of that car
         //then send a put request to the server
             //in the .then call getAllApiHouses()

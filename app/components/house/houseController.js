@@ -44,7 +44,7 @@ export default class HouseController {
         _hs.deleteHouse(id);
     }
     bidHouse(id) {
-        _hs.bidHouse(id);
+        _hs.bidHouse(id)
     }
     getHouses(url) {
         _hs.getAllApiHouses(url)
