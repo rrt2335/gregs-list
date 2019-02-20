@@ -1,4 +1,4 @@
-import Car from "../models/car.js";
+import Car from "../../models/car.js";
 
 // PRIVATE
 // STATE IS THE OBJECT THAT CONTAINS ALL DATA

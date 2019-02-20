@@ -16,7 +16,7 @@ function logCars() {
     console.log("The cars have been updated!");
 }
 
-//Public
+// Public
 export default class CarController {
     constructor() {
         _cs.addSubscriber('cars', draw);
@@ -24,7 +24,7 @@ export default class CarController {
         draw();
     }
 
-    // IN ANY FORM SUBMISSION DO NOT FORGET TO PREVENT THE DEFAULT ACTION
+    // IN ANY FORM SUBMISSION, DO NOT FORGET TO PREVENT THE DEFAULT ACTION
     addCar(event) {
         event.preventDefault();
         let form = event.target;

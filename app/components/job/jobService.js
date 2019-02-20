@@ -1,4 +1,4 @@
-import Job from "../models/job.js";
+import Job from "../../models/job.js";
 
 // PRIVATE
 // STATE IS THE OBJECT THAT CONTAINS ALL DATA

@@ -1,4 +1,4 @@
-import House from "../models/house.js";
+import House from "../../models/house.js";
 
 // PRIVATE
 // STATE IS THE OBJECT THAT CONTAINS ALL DATA
