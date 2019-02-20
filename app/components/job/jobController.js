@@ -1,6 +1,6 @@
-import JobService from "./jobService.js";
-
 //Private
+
+import JobService from "./jobService.js";
 let _js = new JobService();
 
 function draw() {
@@ -9,7 +9,7 @@ function draw() {
     jobs.forEach(job => {
         template += job.getTemplate();
     });
-    document.getElementById('available-jobs').innerHTML = template;
+    document.getElementById('available-content').innerHTML = template;
 }
 
 function logJobs() {
@@ -17,7 +17,6 @@ function logJobs() {
 }
 
 //Public
-
 export default class JobController {
     constructor() {
         _js.addSubscriber('jobs', draw);
@@ -42,6 +41,10 @@ export default class JobController {
     }
     deleteJob(id) {
         _js.deleteJob(id);
+    }
+
+    getJobs(url) {
+        _js.getAllApiJobs(url)
     }
 
 }

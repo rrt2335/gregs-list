@@ -1,13 +1,14 @@
+// PRIVATE
 import Car from "../../models/car.js";
 
-// PRIVATE
+// Creates an object to send requests from
+let _carsApi = axios.create({
+    baseURL: 'https://bcw-gregslist.herokuapp.com/api/cars'
+})
+
 // STATE IS THE OBJECT THAT CONTAINS ALL DATA
 let _state = {
-    cars: [
-        new Car({ price: 10000, title: 'A Stealthy Getaway Car', img: 'https://images-na.ssl-images-amazon.com/images/I/410jkSdCl0L._SL500_AC_SS350_.jpg', description: 'Cops and robbers both hate him.' }),
-        new Car({ price: 1500, title: 'A Classic for Any Enthusiast', img: 'https://media.npr.org/assets/img/2011/05/31/FordPinto_wide-aa4b7f14f4dde2bc2b9fd16e77003fb01626dee2-s800-c85.jpg', description: 'Just don\'t hit it from behind!' }),
-        new Car({ price: 100, title: 'Just Take it', img: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Gremlin_side_%285903000893%29.jpg' })
-    ]
+    cars: []
 }
 
 // SUBSCRIBERS HOLDS ALL FUNCTIONS TO TRIGGER ON CHANGES
@@ -46,4 +47,27 @@ export default class CarService {
         }
         setState('cars', _state.cars);
     }
+    bidCar(id) {
+        for (let i = 0; i < _state.cars.length; i++) {
+            let car = _state.cars[i];
+            car.price++;
+                break;
+            }
+        
+        setState('cars', _state.cars);
+    }
+    getAllApiCars(url = '') {
+        _carsApi.get(url)
+            // Happens after data comes back
+            .then(response => {
+                console.log(response)
+                // All axios requests return 'data' in the response
+                let cars = response.data.data.map(c => new Car(c))
+                setState('cars', cars)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }
+    
 }

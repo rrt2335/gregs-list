@@ -1,13 +1,15 @@
 import House from "../../models/house.js";
 
+// Creates an object to send requests from
+let _housesApi = axios.create({
+    baseURL: 'https://bcw-gregslist.herokuapp.com/api/houses'
+})
+
+
 // PRIVATE
 // STATE IS THE OBJECT THAT CONTAINS ALL DATA
 let _state = {
-    houses: [
-        new House({ price: 10000000, title: 'An Utter Mansion', img: 'https://media.bizj.us/view/img/10977377/ccm0509-2*750xx7312-4113-0-235.jpg'}),
-        new House({ price: 240000, title: 'Balloon House', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6lq2tAR_JsHVA0DdoHpuT3r6RUfSJfwyKuzzKnb8V6jEiklYE', description: "Buy now! Prices are sure to inflate!" }),
-        new House({ price: 100, title: 'Flimsy Tree Residence', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIpolR-9Qt0tVsQFnmEnbzj6SEJWPUGSzbBeJ6SpB72WjIPM03nw', description: "You need to branch out more." })
-    ]
+    houses: []
 }
 
 // SUBSCRIBERS HOLDS ALL FUNCTIONS TO TRIGGER ON CHANGES
@@ -45,5 +47,26 @@ export default class HouseService {
             }
         }
         setState('houses', _state.houses);
+    }
+    bidHouse(id) {
+        //find the house in our state with this id, use .find()
+        let house = 
+        //change the price of that car
+        //then send a put request to the server
+            //in the .then call getAllApiHouses()
+
+    }
+    getAllApiHouses(url = '') {
+        _housesApi.get(url)
+            // Happens after data comes back
+            .then(response => {
+                console.log(response)
+                // All axios requests return 'data' in the response
+                let houses = response.data.data.map(h => new House(h))
+                setState('houses', houses)
+            })
+            .catch(err => {
+                console.error(err)
+            })
     }
 }

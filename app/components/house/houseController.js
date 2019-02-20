@@ -1,15 +1,15 @@
+//Private
 import HouseService from "./houseService.js";
 
-//Private
 let _hs = new HouseService();
 
-function draw() {
+function drawHouses() {
     let houses = _hs.Houses;
     let template = '';
     houses.forEach(house => {
         template += house.getTemplate();
     });
-    document.getElementById('available-houses').innerHTML = template;
+    document.getElementById('available-content').innerHTML = template;
 }
 
 function logHouses() {
@@ -20,9 +20,9 @@ function logHouses() {
 
 export default class HouseController {
     constructor() {
-        _hs.addSubscriber('houses', draw);
+        _hs.addSubscriber('houses', drawHouses);
         _hs.addSubscriber('houses', logHouses);
-        draw();
+        drawHouses();
     }
 
     // IN ANY FORM SUBMISSION DO NOT FORGET TO PREVENT THE DEFAULT ACTION
@@ -42,6 +42,12 @@ export default class HouseController {
     }
     deleteHouse(id) {
         _hs.deleteHouse(id);
+    }
+    bidHouse(id) {
+        _hs.bidHouse(id);
+    }
+    getHouses(url) {
+        _hs.getAllApiHouses(url)
     }
 
 }

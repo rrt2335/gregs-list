@@ -3,13 +3,13 @@ import CarService from "./carService.js";
 //Private
 let _cs = new CarService();
 
-function draw() {
+function drawCars() {
     let cars = _cs.Cars;
     let template = '';
     cars.forEach(car => {
         template += car.getTemplate();
     });
-    document.getElementById('available-cars').innerHTML = template;
+    document.getElementById('available-content').innerHTML = template;
 }
 
 function logCars() {
@@ -19,9 +19,9 @@ function logCars() {
 // Public
 export default class CarController {
     constructor() {
-        _cs.addSubscriber('cars', draw);
+        _cs.addSubscriber('cars', drawCars);
         _cs.addSubscriber('cars', logCars);
-        draw();
+        drawCars();
     }
 
     // IN ANY FORM SUBMISSION, DO NOT FORGET TO PREVENT THE DEFAULT ACTION
@@ -43,4 +43,7 @@ export default class CarController {
         _cs.deleteCar(id);
     }
 
+    getCars(url) {
+        _cs.getAllApiCars(url)
+    }
 }
