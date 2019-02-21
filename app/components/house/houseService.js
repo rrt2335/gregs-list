@@ -2,7 +2,7 @@ import House from "../../models/house.js";
 
 // Creates an object to send requests from
 let _housesApi = axios.create({
-    baseURL: 'https://bcw-gregslist.herokuapp.com/api/houses'
+    baseURL: 'https://bcw-gregslist.herokuapp.com/api/houses/'
 })
 
 // PRIVATE
@@ -49,17 +49,20 @@ export default class HouseService {
     }
     bidHouse(id) {
         //find the house in our state with this id, use .find()
-        let house = {}
+        let house = _state.houses.find(h => h._id == id)
         //change the price of that car
+        house.price++;
         //then send a put request to the server
+        _housesApi.put(id, {price: house.price})
             //in the .then call getAllApiHouses()
-
+            .then(res => {
+                this.getAllApiHouses()
+            })
     }
     getAllApiHouses(url = '') {
         _housesApi.get(url)
             // Happens after data comes back
             .then(response => {
-                console.log(response)
                 // All axios requests return 'data' in the response
                 let houses = response.data.data.map(h => new House(h))
                 setState('houses', houses)

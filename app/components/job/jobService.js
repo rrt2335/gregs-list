@@ -38,10 +38,10 @@ export default class JobService {
         _state.jobs.push(newJob);
         setState('jobs', _state.jobs);
     }
-    deleteJob(id) {
+    deleteJob(_id) {
         for (let i = 0; i < _state.jobs.length; i++) {
             let job = _state.jobs[i];
-            if (job.id == id) {
+            if (job._id == _id) {
                 _state.jobs.splice(i, 1);
                 break;
             }

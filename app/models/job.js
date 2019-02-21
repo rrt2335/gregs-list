@@ -1,14 +1,11 @@
-let id = 1;
-
 export default class Job {
     constructor(data) {
-        this.id = id;
+        this._id = data._id;
         this.company = data.company
         this.jobTitle = data.jobTitle
         this.hours = data.hours
         this.rate = data.rate
         this.description = data.description || '(No description provided)';
-        id++;
     }
 
     getTemplate() {

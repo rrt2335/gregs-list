@@ -37,10 +37,10 @@ export default class CarService {
         _state.cars.push(newCar);
         setState('cars', _state.cars);
     }
-    deleteCar(id) {
+    deleteCar(_id) {
         for (let i = 0; i < _state.cars.length; i++) {
             let car = _state.cars[i];
-            if (car.id == id) {
+            if (car._id == _id) {
                 _state.cars.splice(i, 1);
                 break;
             }
@@ -48,13 +48,16 @@ export default class CarService {
         setState('cars', _state.cars);
     }
     bidCar(id) {
-        for (let i = 0; i < _state.cars.length; i++) {
-            let car = _state.cars[i];
-            car.price++;
-                break;
-            }
-        
-        setState('cars', _state.cars);
+        // Find the car in our state with this id, use .find()
+        let car = _state.cars.find(c => c._id == id)
+        // Change the price of that car
+        car.price++;
+        // Then send a put request to the server
+        _carsApi.put(id, {price: car.price})
+            // In the .then, call getAllApiCars()
+            .then(res => {
+                this.getAllApiCars()
+            })
     }
     getAllApiCars(url = '') {
         _carsApi.get(url)

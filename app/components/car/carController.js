@@ -1,6 +1,6 @@
-import CarService from "./carService.js";
-
 //Private
+
+import CarService from "./carService.js";
 let _cs = new CarService();
 
 function drawCars() {
@@ -41,6 +41,10 @@ export default class CarController {
     }
     deleteCar(id) {
         _cs.deleteCar(id);
+    }
+
+    bidCar(id) {
+        _cs.bidCar(id)
     }
 
     getCars(url) {
