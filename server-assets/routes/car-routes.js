@@ -3,14 +3,14 @@ const router = require('express').Router();
 let cars = [{
     make: "Hyundai",
     model: "Elantra",
-    year: "2019",
-    price: "3000",
+    year: 2019,
+    price: 3000,
     description: "This is my car."
 }, {
     make: "Ford",
     model: "Focus",
-    year: "2010",
-    price: "1500",
+    year: 2010,
+    price: 1500,
     description: "A standard vehicle."
 }]
 

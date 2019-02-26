@@ -1,16 +1,17 @@
 const router = require('express').Router();
 
 let houses = [{
-    make: "Hyundai",
-    model: "Elantra",
-    year: "2019",
-    price: "3000",
+    bedrooms: "Hyundai",
+    bathrooms: "Elantra",
+    price: 2019,
+    levels: 3000,
+    year: 1999,
     description: "This is my house."
 }, {
     make: "Ford",
     model: "Focus",
-    year: "2010",
-    price: "1500",
+    year: 2010,
+    price: 1500,
     description: "A standard vehicle."
 }]
 

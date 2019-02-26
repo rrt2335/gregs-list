@@ -1,17 +1,17 @@
 const router = require('express').Router();
 
 let jobs = [{
-    make: "Hyundai",
-    model: "Elantra",
-    year: "2019",
-    price: "3000",
-    description: "This is my job."
+    jobTitle: "musician",
+    company: "Royal Caribbean International",
+    hours: 40,
+    wage: 2600,
+    description: "This was my previous job."
 }, {
-    make: "Ford",
-    model: "Focus",
-    year: "2010",
-    price: "1500",
-    description: "A standard vehicle."
+    jobTitle: "cashier",
+    company: "Fred Meyer",
+    hours: 25,
+    wage: 140,
+    description: "This is my current job."
 }]
 
 // GetAllJobs
