@@ -1,18 +1,19 @@
 const router = require('express').Router();
 
 let houses = [{
-    bedrooms: "Hyundai",
-    bathrooms: "Elantra",
+    bedrooms: 3,
+    bathrooms: 2.5,
     price: 2019,
-    levels: 3000,
-    year: 1999,
+    levels: 2,
+    year: 2015,
     description: "This is my house."
 }, {
-    make: "Ford",
-    model: "Focus",
-    year: 2010,
-    price: 1500,
-    description: "A standard vehicle."
+    bedrooms: 19,
+    bathrooms: 13,
+    price: 2000000,
+    levels: 5,
+    year: 2008,
+    description: "An utter mansion."
 }]
 
 // GetAllHouses
