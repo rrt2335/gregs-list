@@ -14,15 +14,20 @@ server.use(bp.urlencoded({ extended: true }))
 
 // Routes
 let carRoutes = require('./server-assets/routes/car-routes')
+let jobRoutes = require('./server-assets/routes/job-routes')
+let houseRoutes = require('./server-assets/routes/house-routes')
 
 
 server.use('/api/cars', carRoutes)
+server.use('/api/jobs', jobRoutes)
+server.use('/api/houses', houseRoutes)
 
 
 // Catch-all
-server.use('', (req, res, next)=> {
+server.use('', (req, res, next) => {
     res.status(404).send('No matching routes. Please check your request.')
 })
+
 
 // Start server
 server.listen(3000, () => {
