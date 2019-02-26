@@ -37,8 +37,8 @@ export default class CarController {
         _cs.addCar(newCar)
         // Clears the form
         form.reset();
-
     }
+    
     deleteCar(id) {
         _cs.deleteCar(id);
     }
